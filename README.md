@@ -22,6 +22,7 @@ Cookie(只需要SESSDATA部分即可)
 
 ```bash
 cd spider
+cd 2020
 python run.py
 ```
 
