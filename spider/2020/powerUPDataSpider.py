@@ -9,7 +9,7 @@ from requests.adapters import HTTPAdapter
 output_path = "D:/BPU/BPUData.csv"
 #打开 · 打开需要爬取的UP主uid并以换行符分割成列表
 uids = open('D:/BPU/BPUList.txt', encoding='utf-8-sig').read().split('\n')
-#处理 · 去掉列表中所有的空值
+#处理 · 去掉列表中所有的所有空值
 uid_list = [u for u in uids if u != '']
 #打开 · 打开headers文件并以换行符分割成列表
 hearers_list = open('D:/BPU/headers.txt', encoding='utf-8-sig').read().split('\n')
@@ -37,13 +37,13 @@ with open(output_path, 'a', encoding="utf-8-sig", newline='') as f:
             row = [card['data']['card']['mid'],card['data']['card']['name'],card['data']['card']['fans'],upstat['data']['archive']['view'],upstat['data']['article']['view'],upstat['data']['likes'],time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())]
             #写入 · 写入row
             f_csv.writerow(row)
-        #判断 · code等于-412时
+        #判断 · code等于-412或-400时
         elif card['code'] == -412 or upstat['code'] == -412:
             print('请求被拦截')
         elif card['code'] == -400 or upstat['code'] == -400:
-            print(uids)
+            print('请求错误')
         else:
             #查看 · 打印爬到的是什么
             print(str(card)+str(upstat))
         #缓冲 · 给服务器点时间——
-        time.sleep(10)
+        time.sleep(5)
