@@ -34,7 +34,13 @@ with open(output_path, 'a', encoding="utf-8-sig", newline='') as f:
         upstat = session.get(upstat_url.format(u),headers = headers).json()
         if card['code'] == 0 | upstat['code'] == 0:
             #保存 · 保存uid信息在row里
-            row = [card['data']['card']['mid'],card['data']['card']['name'],card['data']['card']['fans'],upstat['data']['archive']['view'],upstat['data']['article']['view'],upstat['data']['likes'],time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())]
+            row = [card['data']['card']['mid'],
+                   card['data']['card']['name'],
+                   card['data']['card']['fans'],
+                   upstat['data']['archive']['view'],
+                   upstat['data']['article']['view'],
+                   upstat['data']['likes'],
+                   time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())]
             #写入 · 写入row
             f_csv.writerow(row)
         #判断 · code等于-412或-400时
