@@ -43,11 +43,13 @@ with open(output_path, 'a', encoding="utf-8-sig", newline='') as f:
                    time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())]
             #写入 · 写入row
             f_csv.writerow(row)
-        #判断 · code等于-412或-400时
+        #判断 · 当code等于-412 -400或-404时
         elif card['code'] == -412 or upstat['code'] == -412:
             print('请求被拦截')
         elif card['code'] == -400 or upstat['code'] == -400:
             print('请求错误')
+        elif card['code'] == -404 or upstat['code'] == -404:
+            print('啥都木有')
         else:
             #查看 · 打印爬到的是什么
             print(str(card)+str(upstat))
