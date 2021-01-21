@@ -3,7 +3,6 @@ import requests
 import time
 import sys
 import csv
-import time
 from requests.adapters import HTTPAdapter
 #输出 · 把爬取到的数据输出到这个路径
 output_path = "D:/BPU/BPUData.csv"
@@ -47,6 +46,7 @@ with open(output_path, 'a', encoding="utf-8-sig", newline='') as f:
         #判断 · 当code等于-412 -400或-404时
         elif card['code'] == -412 or upstat['code'] == -412:
             print('请求被拦截')
+            sys.exit()
         elif card['code'] == -400 or upstat['code'] == -400:
             print('请求错误')
         elif card['code'] == -404 or upstat['code'] == -404:
