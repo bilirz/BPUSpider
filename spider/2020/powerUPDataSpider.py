@@ -10,11 +10,10 @@ output_path = "D:/BPU/BPUData.csv"
 uids = open('D:/BPU/BPUList.txt', encoding='utf-8-sig').read().split('\n')
 #处理 · 去掉列表中所有的所有空值
 uid_list = [u for u in uids if u != '']
-#打开 · 打开headers文件并以换行符分割成列表
-hearers_list = open('D:/BPU/headers.txt', encoding='utf-8-sig').read().split('\n')
+#配置 · 在此处配置User-Agent和Cookie
 headers = {
-    "User-Agent": hearers_list[0],
-    "Cookie": hearers_list[1]
+    "User-Agent": '',
+    "Cookie": ''
 }
 #URL · B站官方提供的BPU的json数据
 card_url = 'http://api.bilibili.com/x/web-interface/card?mid={}'
