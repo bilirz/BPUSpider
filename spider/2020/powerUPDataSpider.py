@@ -10,7 +10,7 @@ output_path = "D:/BPU/BPUData.csv"
 uids = open('D:/BPU/BPUList.txt', encoding='utf-8-sig').read().split('\n')
 #处理 · 去掉列表中所有的所有空值
 uid_list = [u for u in uids if u != '']
-#配置 · 在此处配置User-Agent和Cookie
+#配置 · 在此处配置User-Agent和Cookie(只需要SESSDATA部分即可)
 headers = {
     "User-Agent": '',
     "Cookie": ''
