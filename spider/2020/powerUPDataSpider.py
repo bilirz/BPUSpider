@@ -26,6 +26,7 @@ session = requests.session()
 session.mount('https://', HTTPAdapter(max_retries=3))
 
 with open(output_path, 'a', encoding="utf-8-sig", newline='') as f:
+    # 保存 · 设置表头
     csv_headers = ['mid','name','fans','archive','article','likes','time']
     f_csv = csv.writer(f)
     f_csv.writerow(csv_headers)
@@ -49,7 +50,7 @@ with open(output_path, 'a', encoding="utf-8-sig", newline='') as f:
         elif card['code'] == -400 or upstat['code'] == -400:
             print('请求错误')
         elif card['code'] == -404 or upstat['code'] == -404:
-            print('啥都木有')
+            print('用户不存在')
         else:
             #查看 · 打印爬到的是什么
             print(str(card)+str(upstat))
