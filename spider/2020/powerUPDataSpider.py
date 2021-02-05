@@ -8,7 +8,7 @@ from requests.adapters import HTTPAdapter
 # 输出 · 把爬取到的数据输出到这个路径
 output_path = "D:/BPU/BPUData.csv"
 # 打开 · 打开需要爬取的UP主uid并以换行符分割成列表
-with open("D:/BPU/BPUList.txt", encoding="utf-8-sig") as f:
+with open("D:/BPU/BPUList.txt", "r", encoding="utf-8-sig") as f:
     uids = f.read().split("\n")
 # 处理 · 去掉列表中所有的所有空值
 uid_list = [u for u in uids if u != ""]
